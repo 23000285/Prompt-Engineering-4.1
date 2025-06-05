@@ -1,208 +1,190 @@
 # Prompt-Engineering-4.1
 # EXP 4 Scenario-Based Report Development Utilizing Diverse Prompting Techniques- Lab Scenario: Smart Health Assistant System
+
+```
+Name    : AADITHYA R
+Reg. No : 212223240001
+```
+
 # Description: 
-## Background:
-You are part of a development team working on an AI-based Smart Health Assistant named "MediGuide" that assists elderly patients in managing chronic diseases like diabetes, hypertension, and arthritis. The assistant must provide tailored health advice, medication reminders, daily tips, and emotional support through natural language conversations.
+You are part of a development team building MediGuide, an AI-powered Smart Health Assistant designed to support elderly patients with chronic conditions like diabetes, hypertension, and arthritis.
+MediGuide aims to improve patient care through:
+
+1. Personalized health advice
+
+2. Timely medication reminders
+
+3. Daily well-being tips
+
+4. Friendly emotional support
+
+The system should understand natural human language, adapt to user needs, and provide safe, compassionate, and context-aware responses.
 
 ## Objective:
-Develop a scenario-based report that demonstrates how diverse prompting techniques (zero-shot, few-shot, chain-of-thought, role-based, and multi-modal prompts) can be used to optimize MediGuide’s responses in different use cases.
+To demonstrate how various AI prompting techniques can be used to train and optimize MediGuide’s conversational abilities across different health-related use cases.
 
-# Algorithm:
+We explore the following diverse prompting techniques:
 
-1.Collect user preferences: destination, duration, interests, and budget.
+1. Zero-Shot Prompting
 
-2.Apply different prompt techniques: zero-shot, role-based, few-shot, chain-of-thought.
+2. Few-Shot Prompting
 
-3.Generate AI outputs for personalized travel plans.
+3. Chain-of-Thought Prompting
 
-4.Compare responses from ChatGPT and Gemini.
+4. Role-Based Prompting
 
-5.Analyze creativity, contextual relevance, and user experience.
+5. Multi-Modal Prompting
 
-6.Summarize findings.
+## Algorithm / Prompting Techniques & Examples:
 
-### Use Case
-Travel Planner Use Case: AI-driven Travel Recommendations and Itinerary Generation
+1. **Identify Use Cases**: Define common scenarios where elderly users interact with MediGuide.  
+2. **Select Prompting Techniques**: Choose appropriate prompting strategies based on the scenario.  
+3. **Design Prompts**: Create examples using each prompting technique.  
+4. **Evaluate Outputs**: Analyze responses for accuracy, empathy, and clarity.  
+5. **Refine Prompts**: Optimize the prompts based on performance.  
+6. **Document Findings**: Record how each prompting style impacts the response quality.
 
-### Objective:
-To compare the effectiveness of three distinct prompt types—
-->Straightforward Prompts
-->Tabular Format Prompting,
-->Missing Word Prompting
-—across two different AI platforms (e.g., ChatGPT and Claude) for generating travel recommendations, personalized itineraries, and activity suggestions.
+### Background  
+You are part of a development team working on an AI-based Smart Health Assistant named **"MediGuide"** that assists elderly patients in managing chronic diseases like diabetes, hypertension, and arthritis. The assistant must provide tailored health advice, medication reminders, daily tips, and emotional support through natural language conversations.
 
-AI Tools Used:
-->ChatGPT (GPT-4)
+### 1. Zero-Shot Prompting
+#### Objective:
+Provide a task to the AI without giving any examples.
+#### Use Case:
+Giving general health tips to diabetic patients.
 
-->Claude (Anthropic AI)
+#### Prompt Example:
 
-Prompts Used:
-### 1. Straightforward Prompts:
-Objective: Directly ask the AI to provide a travel itinerary based on provided preferences and destination.
+"Provide a health tip for an elderly diabetic patient."
 
-Prompt Example:
-"I am planning a trip to Paris for 5 days and I enjoy historical sites, museums, and local cuisine. Can you recommend a travel itinerary for me?"
+#### Expected Output:
 
-### ChatGPT Output:
-"Here’s a suggested 5-day itinerary for Paris:
+"Make sure to check your blood sugar levels regularly and avoid skipping meals. Include fiber-rich foods and stay hydrated."
 
-Day 1: Explore the Eiffel Tower and Champ de Mars park. Visit the Louvre Museum in the afternoon.
+#### Explanation:
+Zero-shot prompting tests the AI's ability to generate relevant responses based only on task phrasing, useful for generalized use cases.
 
-Day 2: Visit Notre-Dame Cathedral and Sainte-Chapelle. Enjoy a walking tour along Seine River.
+- **Use Case**: User asks, “What are symptoms of high blood sugar?”  
+- **Prompt**: `"List symptoms of high blood sugar."`  
+- **Output**:  
+  - MediGuide replies:  
+    > "Common symptoms of high blood sugar include increased thirst, frequent urination, fatigue, blurred vision, and slow-healing wounds."
 
-Day 3: Spend the day at the Palace of Versailles, including a tour of the gardens.
+### 2. Few-Shot Prompting
+#### Objective:
+Teach the AI how to respond using a few examples, helping it generalize to similar requests.
+#### Use Case: 
+Answering symptom-related questions.
 
-Day 4: Explore Montmartre, visit Sacré-Cœur Basilica and Moulin Rouge.
+#### Prompt Example:
 
-Day 5: Visit the Musée d'Orsay and enjoy dinner at a local French bistro."
+"Here are examples of responses to common symptoms:
+'I have a headache.' → 'Make sure you're well-hydrated and rest in a quiet, dark room. If it persists, consult your doctor.'
+'My knee hurts.' → 'Try applying a warm compress and avoid putting too much pressure on it today.'
+Now respond to: 'I feel dizzy in the morning.'"
 
-### Claude Output:
-"Here’s a recommended 5-day itinerary for Paris:
+#### Expected Output:
 
-Day 1: Visit Eiffel Tower and Louvre Museum. Have dinner at Le Jules Verne on the Eiffel Tower.
+"Dizziness in the morning can be due to low blood pressure or dehydration. Try getting up slowly and drinking water. If it continues, consult a healthcare professional."
 
-Day 2: Explore Musée d'Orsay in the morning, then visit Montmartre for local art and cafes.
+#### Explanation:
+Few-shot prompting helps fine-tune MediGuide’s ability to generalize safe advice across similar health queries.
 
-Day 3: Day trip to Versailles Palace and gardens.
+- **Use Case**: User seeks daily diabetic tips.  
+- **Prompt**:
+```Q: What is a good health tip for diabetes?
+A: Stay hydrated and monitor your blood sugar regularly.
 
-Day 4: Visit Notre-Dame Cathedral and Latin Quarter for a historical walk.
+Q: Give me a daily diabetes tip.
+A: Eat balanced meals with consistent carbohydrate intake.
 
-Day 5: Spend the day exploring Le Marais district, shop at local boutiques, and end with a Seine River cruise."
+Q: Share a useful diabetic health reminder.
+A: 
+```
 
-### Evaluation:
-| **Criteria**        | **ChatGPT**                                                                | **Claude**                                                                              |
-| ------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **Accuracy**        | Suggested relevant and iconic Parisian landmarks and activities.           | Suggested relevant landmarks, with additional focus on dining and shopping experiences. |
-| **Coherence**       | Structured and balanced itinerary with historical and cultural highlights. | Structured itinerary, with a good mix of activities and dining suggestions.             |
-| **Simplicity**      | Easy to follow itinerary with sufficient detail.                           | Detailed itinerary, but more options could be overwhelming for some users.              |
-| **User Experience** | The itinerary was straightforward and easy for a general audience.         | Response included more personalized details but was more complex in nature.             |
+- **Output**:  
+- MediGuide replies:  
+  > "Remember to check your feet daily for any sores or changes, as diabetes can affect circulation."
 
+### 3. Chain-of-Thought Prompting
+#### Objective:
+Guide the AI through a step-by-step reasoning process.
+#### Use Case:
+Handling complex situations like missed medications.
 
-### Final Summary:
-->ChatGPT provided a clear, simple, and user-friendly itinerary suitable for general travelers.
+#### Prompt Example:
 
-->Claude provided a more detailed itinerary, with suggestions for dining and local experiences, making it more suited for travelers looking for an in-depth experience.
+"A patient forgot to take their blood pressure medication this morning. Think step-by-step to decide what advice to give."
 
-### 2. Tabular Format Prompting:
-Objective: Present information in a tabular format for clarity, then ask the AI to analyze and generate a travel itinerary.
+#### Expected Output:
 
-Prompt Example:
-"Below is a table with the traveler's preferences and constraints. Based on this, can you recommend a 5-day itinerary for a trip to Rome?
+#### Step 1: Identify how late the dose is.
+#### Step 2: If it's only a few hours, it may be safe to take it now.
+#### Step 3: If it's close to the next dose, it may be better to skip and resume the regular schedule.
+#### Step 4: Recommend contacting their healthcare provider for confirmation."
 
-| Preference         | Details                                    |
-| ------------------ | ------------------------------------------ |
-| Destination        | Rome                                       |
-| Duration           | 5 days                                     |
-| Interests          | History, Museums, Food, Architecture       |
-| Budget             | Moderate                                   |
-| Travel Constraints | No walking tours longer than 2 hours daily |
+#### Explanation:
+Chain-of-thought prompting is useful for multi-step decisions, encouraging logical reasoning and safety awareness.
 
+- **Use Case**: User asks, “Why should I take my hypertension medication even if I feel fine?”  
+- **Prompt**:  
+`"Let's think through this step by step: High blood pressure often has no symptoms..."`  
+- **Output**:  
+- MediGuide replies:  
+  > "High blood pressure is known as the 'silent killer' because it may not cause noticeable symptoms. Even if you feel fine, untreated hypertension can lead to heart attacks, strokes, and kidney damage over time. That’s why it’s important to take your medication regularly."
 
-### ChatGPT Output:
-"Here’s a 5-day itinerary for Rome:
+### 4. Role-Based Prompting
+#### Objective:
+Assign a specific role or persona to shape tone and empathy.
+#### Use Case:
+Providing emotional support.
 
-Day 1: Visit Colosseum and Roman Forum (2 hours). Lunch at a traditional trattoria. Evening visit to Pantheon.
+#### Prompt Example:
 
-Day 2: Explore the Vatican Museums and St. Peter’s Basilica (with short breaks). Enjoy dinner in the Trastevere district.
+"You are a kind and empathetic health assistant for elderly users. Respond to this: 'I feel lonely and tired today.'"
 
-Day 3: Visit Borghese Gallery and Villa Borghese Gardens. Relax and enjoy Piazza Navona in the evening.
+#### Expected Output:
 
-Day 4: Explore Piazza del Popolo, Spanish Steps, and Trevi Fountain. Have dinner at a rooftop restaurant.
+"I'm really sorry you're feeling this way. You’re not alone — I’m here to talk anytime. Maybe a short walk, some music, or calling a loved one could lift your mood a little. Would you like me to suggest a calming activity?"
 
-Day 5: Day trip to Tivoli Gardens with lunch at a local vineyard."
+#### Explanation:
+Role-based prompts create compassionate and human-like conversations, important for patient comfort and engagement.
 
-### Claude Output:
-"Here’s a suggested 5-day itinerary for Rome:
+- **Use Case**: User feels anxious about managing arthritis pain.  
+- **Prompt**:  
+`"You are a compassionate digital health coach. Provide emotional support and a simple pain management tip for arthritis."`  
+- **Output**:  
+- MediGuide replies:  
+  > "I understand how challenging arthritis can be. You're doing your best, and that matters. One tip that might help is applying a warm compress to sore joints—it can ease stiffness and improve flexibility."
 
-Day 1: Visit the Colosseum, Roman Forum, and Palatine Hill (break after each location). Lunch at Piazza della Rotonda. Evening stroll near the Trevi Fountain.
+### 5. Multi-Modal Prompting
+#### Objective:
+Combine text with other input types, such as images, schedules, or audio.
+#### Use Case:
+Analyzing medication schedules or diet plans.
 
-Day 2: Spend the day at the Vatican Museums and St. Peter's Basilica. Short walk through Piazza del Popolo.
+#### Prompt Example:
 
-Day 3: Explore Villa Borghese, and enjoy Borghese Gallery. Lunch in Trastevere followed by an afternoon at Piazza Navona.
+(Input: Image of a meal plate + Text: "Is this a good breakfast for a diabetic?")
 
-Day 4: Visit the Pantheon, then head to Campo de' Fiori and explore the Spanish Steps.
+#### Expected Output:
 
-Day 5: Visit Castel Sant'Angelo and take a day trip to Ostia Antica for ancient ruins."
+"This meal looks high in carbohydrates due to the white bread and fruit juice. For a diabetic-friendly breakfast, consider whole grain toast, a boiled egg, and unsweetened tea."
 
-### Evaluation:
-| **Criteria**        | **ChatGPT**                                                                                   | **Claude**                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **Accuracy**        | Identified relevant attractions and activities in Rome, with sufficient details for each day. | Identified major attractions with slightly more focus on exploring less crowded areas. |
-| **Clarity**         | Clear and straightforward itinerary.                                                          | Slightly more detailed, could be overwhelming for users looking for simplicity.        |
-| **Simplicity**      | Suitable for travelers looking for a concise plan.                                            | Ideal for those who prefer more variety in their daily plans.                          |
-| **User Experience** | Simple to follow, focused on historical and cultural attractions.                             | More comprehensive, included a day trip and suggested quieter locations.               |
+#### Explanation:
+Multi-modal prompting enables the assistant to understand visual inputs alongside text, useful in health and nutrition contexts.
 
+- **Use Case**: User uploads a photo of a medication label and asks for dosage clarification.  
+- **Prompt**:  
+*Includes image + question: "Can you tell me the dosage instructions on this label?"*  
+- **Output**:  
+- MediGuide replies after analyzing the label:  
+  > "This medication should be taken once daily with food. Be sure to follow your doctor’s instructions and not exceed the recommended dose."
 
-### Final Summary:
-->ChatGPT provided a concise and easy-to-follow itinerary, ideal for travelers who prefer simplicity.
+#### Output:
+Each prompting technique was successfully applied to specific health support scenarios within the MediGuide system. The responses generated were context-aware, empathetic, and medically aligned with common chronic disease management practices.
 
-->Claude offered a more detailed, varied itinerary with a mix of well-known and less-visited locations, which could appeal to more seasoned travelers.
 
-### 3. Missing Word Prompting:
-Objective: Provide a partially completed sentence or data and ask the AI to fill in the missing words or information.
-
-Prompt Example:
-"The traveler is interested in historical landmarks, museums, and good food in Rome. Based on these preferences, the ideal destination for a 5-day itinerary is _____. Fill in the missing destination and suggest an itinerary."
-
-### ChatGPT Output:
-"The ideal destination is Rome. Here’s a suggested itinerary:
-
-Day 1: Visit Colosseum, Roman Forum, and Pantheon.
-
-Day 2: Explore Vatican Museums and St. Peter’s Basilica.
-
-Day 3: Visit Borghese Gallery and enjoy the Villa Borghese Gardens.
-
-Day 4: Explore Trevi Fountain, Spanish Steps, and Piazza del Popolo.
-
-Day 5: Day trip to Tivoli Gardens."
-
-### Claude Output:
-"The ideal destination is Rome. Here’s a suggested itinerary:
-
-Day 1: Visit Colosseum, Roman Forum, and Palatine Hill.
-
-Day 2: Explore Vatican Museums and St. Peter’s Basilica.
-
-Day 3: Discover Villa Borghese and take a relaxing walk through Piazza Navona.
-
-Day 4: Visit Pantheon, Campo de' Fiori, and enjoy a leisurely lunch at Trastevere.
-
-Day 5: Take a trip to Ostia Antica and enjoy the archaeological sites."
-
-### Evaluation:
-| **Criteria**     | **ChatGPT**                                                                                                    | **Claude**                                                                                                     |
-| ---------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **Accuracy**     | Both outputs correctly identified Rome and provided relevant itinerary options.                                | Both outputs correctly identified Rome and provided a well-balanced itinerary.                                 |
-| **Completeness** | Both responses provided a comprehensive 5-day itinerary, with no critical information omitted.                 | Both responses provided a comprehensive 5-day itinerary, with a variety of attractions.                        |
-| **Simplicity**   | ChatGPT’s output was clearer and simpler for general users.                                                    | Claude’s output offered more variety, suitable for travelers looking for a wider range of activities.          |
-| **Coherence**    | Both responses were coherent and logically structured; however, Claude’s included a more diverse mix of sites. | Both responses were coherent and logically structured; however, Claude’s included a more diverse mix of sites. |
-
-
-### Conclusion:
-
-->ChatGPT delivered a simple and straightforward itinerary, ideal for general audiences.
-
-->Claude provided a more diverse and varied itinerary, with additional options for a richer experience.
-
-### Final Comparative Evaluation:
-
-| **Prompt Type**              | **Best Performing Platform** | **Strengths**                                     | **Weaknesses**                                      |
-| ---------------------------- | ---------------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| **Straightforward Prompts**  | **Tie** (ChatGPT & Claude)   | Both platforms provided accurate recommendations. | Claude’s output was slightly more detailed.         |
-| **Tabular Format Prompting** | **ChatGPT**                  | Clear and concise recommendations.                | Claude provided more diverse activity options.      |
-| **Missing Word Prompting**   | **ChatGPT**                  | Clear and straightforward output.                 | Claude’s suggestions were more varied and detailed. |
-
-
-### Final Conclusion:
-
-->ChatGPT performed well in terms of clarity and simplicity, making it ideal for general travelers who prefer a concise and easy-to-follow plan.
-
-->Claude provided more detailed, varied suggestions, which would benefit travelers looking for a richer experience or seeking specific, off-the-beaten-path locations.
-
-# Result:
-
-Thus the Prompts were exected succcessfully.
-
-
+### Result
+Using diverse prompting techniques significantly improves MediGuide's performance by enabling more relevant, empathetic, and accurate responses tailored to elderly users' health needs. Each technique addresses different challenges—ranging from reasoning and context-awareness to emotional intelligence and multi-modal input handling.
 
